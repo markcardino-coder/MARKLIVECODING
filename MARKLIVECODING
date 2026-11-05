@@ -1,0 +1,59 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ */
+
+package com.mycompany.mavenproject1;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author CARDIÑO_CPE113
+ */
+public class Mavenproject1 {
+
+    public static double calculateAverage(double prelim, double midterm, double finals) {
+        return (prelim + midterm + finals) / 3;
+    }
+
+    public static char getGradeEquivalent(double average) {
+        if (average >= 90) {
+            return 'A';
+        } else if (average >= 90) {
+            return 'B';
+        } else if (average >= 85) {
+            return 'C';
+        } else if (average >= 75) {
+            return 'D';
+        } else {
+            return 'F';
+        }
+    }
+
+    public static boolean isPassed(double average) {
+        return average >= 75;
+    }
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Enter Prelim: ");
+        double prelim = input.nextDouble();
+
+        System.out.print("Enter Midterm: ");
+        double midterm = input.nextDouble();
+
+        System.out.print("Enter Finals: ");
+        double finals = input.nextDouble();
+
+        double average = calculateAverage(prelim, midterm, finals);
+        char grade = getGradeEquivalent(average);
+        boolean passed = isPassed(average);
+
+        System.out.printf("Average: %.2f%n", average);
+        System.out.println("Grade: " + grade);
+        System.out.println("Status: " + (passed ? "Passed" : "Failed"));
+
+        input.close();
+    }
+} 
